@@ -24,7 +24,11 @@ class FamilyTree:
         if mother is None:
             father = None
         else:
+            if mother.gender != 'F':
+                return 'CHILD_ADDITION_FAILED'
             father = self.get_member_by_relation(mother, 'partner')[0]
+            # if father.gender != 'M':
+            #     return 'CHILD_ADDITION_FAILED '
         mname, fname = None, None
         if mother is not None:
             mname = mother.name
@@ -38,6 +42,8 @@ class FamilyTree:
             partner = self.get_member_by_name(partner_name)
             if partner is not None:
                 check_level = partner.level - 1
+        if mother is None and partner_name is None:
+            return 'PERSON_NOT_FOUND'
         member = Member(name, gender, mname, fname, partner_name, check_level + 1 )
 
         # for i, v in enumerate(self.__tree):
@@ -64,6 +70,7 @@ class FamilyTree:
                 level_tmp = [1]
             for i in level_tmp:
                 self.__levels.append(i)
+        return member
 
 
 
