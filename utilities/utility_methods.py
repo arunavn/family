@@ -1,6 +1,6 @@
 def add_child(ftree, mother_name, name, gender):
     # name, mother_name, gender = name.lower(), mother_name.lower(), gender[0]
-    msg = ftree.add_member(name, gender, mother_name)
+    msg = ftree.add_member(name, gender[0], mother_name)
     if isinstance(msg, str):
         return msg
     else:

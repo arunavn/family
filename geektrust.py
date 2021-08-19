@@ -29,7 +29,8 @@ def main():
                 pass      
     except IndexError:
         pass
-
+    t = ftree.get_tree()
+    # print(json.dumps(t))
 
 if __name__ == "__main__":
     main()
