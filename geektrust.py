@@ -6,17 +6,13 @@ def main():
     #creating initial tree dictionary from input json
     intial_tree = {}
     try:
-        with open('data_source/initial_tree1.json', 'r') as f: 
+        with open('data_source/initial_tree.json', 'r') as f: 
             intial_tree = json.load(f)
     except:
         pass
     #creating initial tree with initial tree dictionary
     ftree = FamilyTree()
     ftree.create_initial_tree(initial_tree=intial_tree)
-    # mem= ftree.get_member_by_name("satvy")
-    # x = ftree.get_member_by_relation(mem, 'Brother-In-Law')
-    # for m in x:
-    #     print(m.name)
     try:
         #taking all input parameters one by one apart from first(python file)
         for file_path in sys.argv[1:]:
