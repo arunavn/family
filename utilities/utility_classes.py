@@ -1,7 +1,11 @@
 class Member:
-    
+    """
+    Member class defines the structure to 
+    hold all relevant information about a 
+    family member, incluiding his/her level
+    in the tree, level 0 being the root 
+    """
     def __init__(self, name, gender = 'F', mother = None, father = None, partner = None, level = 0):
-        #Member.member_id+=1 
         self.name = name
         self.gender = gender
         self.partner = partner
@@ -11,7 +15,16 @@ class Member:
 
 
 class FamilyTree:
-
+    """
+    The FamilyTree class defines the 
+    tree(in list variable "__tree") and 
+    various methods to perform 
+    operation on tree,it has a variable
+     '__levels' which holds number 
+     of members in each level.
+    member at same level are stored
+    toghether in the list for fast traversal
+    """
     def __init__(self):
         self.__tree = [] 
         self.__levels = []
@@ -73,7 +86,7 @@ class FamilyTree:
         if isinstance(member, str):
             member = self.get_member_by_name(member)
         if member is None:
-            return [None]
+            return [None, 'PERSON_NOT_FOUND']
         member_list= []
         if relation == 'partner':
             member_at_same_level = self.get_members_at_level(member.level)
@@ -103,8 +116,34 @@ class FamilyTree:
             member_list = self.get_offsprings(member, male = False)
         elif relation == 'Siblings':
             member_list = self.get_siblings(member)
+        elif relation == 'Sister-In-Law':
+            spouse_sister = []
+            partner = self.get_member_by_relation(member, 'partner')
+            if partner[0] is not None:
+                spouse_sister = self.get_siblings(partner[0], male = False)
+            sibling_wives = []
+            siblings = self.get_siblings(member, female = False)
+            for s in siblings:
+                s_wife = self.get_member_by_relation(s, 'partner')
+                if s_wife[0] is not None:
+                    if s_wife[0].gender == 'F':
+                        sibling_wives.append(s_wife[0])
+            member_list = spouse_sister + sibling_wives
+        elif relation == 'Brother-In-Law':
+            spouse_brother = []
+            partner = self.get_member_by_relation(member, 'partner')
+            if partner[0] is not None:
+                spouse_brother = self.get_siblings(partner[0], female = False)
+            sibling_husband = []
+            siblings = self.get_siblings(member, male = False)
+            for s in siblings:
+                s_husband = self.get_member_by_relation(s, 'partner')
+                if s_husband[0] is not None:
+                    if s_husband[0].gender == 'M':
+                        sibling_husband.append(s_husband[0])
+            member_list = spouse_brother + sibling_husband
         if len(member_list) == 0:    
-            return [None]
+            return [None, 'NONE']
         return member_list
             
 
@@ -112,7 +151,6 @@ class FamilyTree:
         tree = []
         for member in self.__tree:
             tree.append(member.__dict__)
-        print(self.__levels)
         return tree 
 
 
@@ -126,7 +164,8 @@ class FamilyTree:
         stop = start + self.__levels[level]
         members = self.__tree[start:stop]
         return members
-    
+
+
     def get_siblings(self, member, male = True, female = True):
         potential_siblings = self.get_members_at_level(member.level)
         siblings = []
@@ -137,6 +176,7 @@ class FamilyTree:
                 if female and (ps.gender == 'F'):
                     siblings.append(ps)
         return siblings
+
 
     def get_offsprings(self, member, male = True, female = True):
         potential_offsprings = self.get_members_at_level(member.level + 1)
