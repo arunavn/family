@@ -1,4 +1,3 @@
-from os import error
 from utilities.utility_classes import FamilyTree
 from utilities.utility_methods import handle_input
 import json, sys
@@ -14,6 +13,12 @@ def main():
     #creating initial tree with initial tree dictionary
     ftree = FamilyTree()
     ftree.create_initial_tree(initial_tree=intial_tree)
+    # mem= ftree.get_member_by_name("kriya")
+    # x = ftree.get_member_by_relation(mem, 'Siblings')
+    # for m in x:
+    #     print(m.name)
+
+
     try:
         #taking all input parameters one by one apart from first(python file)
         for file_path in sys.argv[1:]:
@@ -34,5 +39,7 @@ def main():
     ini_tree = ftree.get_tree()
     y = json.dumps(ini_tree)
     # print(y)
+
+
 if __name__ == "__main__":
     main()

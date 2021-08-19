@@ -1,191 +1,190 @@
 [
 
-{
-    "name" : "shan",
-    "mother" : null,
-    "gender" : "M",
-    "partner" : "anga"
-},
-{
-    "name" : "anga",
-    "mother" : null,
-    "gender" : "F",
-    "partner" : "shan"
-},
-{
-    "name" : "chit",
-    "mother" : "anga",
-    "gender" : "M",
-    "partner" : "amba"
-},
-{
-    "name" : "amba",
-    "mother" : null,
-    "gender" : "F",
-    "partner" : "chit"
-},
-{
-    "name" : "ish",
-    "mother" : "anga",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "vich",
-    "mother" : "anga",
-    "gender" : "M",
-    "partner" : "lika"
-},
-{
-    "name" : "lika",
-    "mother" : null,
-    "gender" : "F",
-    "partner" : "vich"
-},
-{
-    "name" : "aras",
-    "mother" : "anga",
-    "gender" : "M",
-    "partner" : "chitra"
-},
-{
-    "name" : "chitra",
-    "mother" : null,
-    "gender" : "F",
-    "partner" : "aras"
-},
-{
-    "name" : "satya",
-    "mother" : "anga",
-    "gender" : "F",
-    "partner" : "vyan"
-},
-{
-    "name" : "vyan",
-    "mother" : null,
-    "gender" : "M",
-    "partner" : "satya"
-},
-{
-    "name" : "dritha",
-    "mother" : "amba",
-    "gender" : "F",
-    "partner" : "jaya"
-},
-{
-    "name" : "jaya",
-    "mother" : null,
-    "gender" : "M",
-    "partner" : "dritha"
-},
-{
-    "name" : "tritha",
-    "mother" : "amba",
-    "gender" : "F",
-    "partner" : null
-},
-{
-    "name" : "vritha",
-    "mother" : "amba",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "vika",
-    "mother" : "lika",
-    "gender" : "F",
-    "partner" : null
-},
-{
-    "name" : "chika",
-    "mother" : "lika",
-    "gender" : "F",
-    "partner" : null
-},
-{
-    "name" : "jnki",
-    "mother" : "chitra",
-    "gender" : "F",
-    "partner" : "arit"
-},
-{
-    "name" : "arit",
-    "mother" : null,
-    "gender" : "M",
-    "partner" : "jnki"
-},
-{
-    "name" : "ahit",
-    "mother" : "chitra",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "asva",
-    "mother" : "satya",
-    "gender" : "M",
-    "partner" : "satvy"
-},
-{
-    "name" : "satvy",
-    "mother" : null,
-    "gender" : "F",
-    "partner" : "asva"
-},
-{
-    "name" : "vyas",
-    "mother" : "satya",
-    "gender" : "M",
-    "partner" : "krpi"
-},
-{
-    "name" : "krpi",
-    "mother" : null,
-    "gender" : "F",
-    "partner" : "vyas"
-},
-{
-    "name" : "atya",
-    "mother" : "satya",
-    "gender" : "F",
-    "partner" : null
-},
-{
-    "name" : "yodhan",
-    "mother" : "dritha",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "laki",
-    "mother" : "jnki",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "lavnya",
-    "mother" : "jnki",
-    "gender" : "F",
-    "partner" : null
-},
-{
-    "name" : "vasa",
-    "mother" : "satvy",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "kriya",
-    "mother" : "krpi",
-    "gender" : "M",
-    "partner" : null
-},
-{
-    "name" : "krithi",
-    "mother" : "krpi",
-    "gender" : "F",
-    "partner" : null
-}
-
+    {
+        "name" : "shan",
+        "mother" : null,
+        "gender" : "M",
+        "partner" : "anga"
+    },
+    {
+        "name" : "anga",
+        "mother" : null,
+        "gender" : "F",
+        "partner" : "shan"
+    },
+    {
+        "name" : "chit",
+        "mother" : "anga",
+        "gender" : "M",
+        "partner" : "amba"
+    },
+    {
+        "name" : "amba",
+        "mother" : null,
+        "gender" : "F",
+        "partner" : "chit"
+    },
+    {
+        "name" : "ish",
+        "mother" : "anga",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "vich",
+        "mother" : "anga",
+        "gender" : "M",
+        "partner" : "lika"
+    },
+    {
+        "name" : "lika",
+        "mother" : null,
+        "gender" : "F",
+        "partner" : "vich"
+    },
+    {
+        "name" : "aras",
+        "mother" : "anga",
+        "gender" : "M",
+        "partner" : "chitra"
+    },
+    {
+        "name" : "chitra",
+        "mother" : null,
+        "gender" : "F",
+        "partner" : "aras"
+    },
+    {
+        "name" : "satya",
+        "mother" : "anga",
+        "gender" : "F",
+        "partner" : "vyan"
+    },
+    {
+        "name" : "vyan",
+        "mother" : null,
+        "gender" : "M",
+        "partner" : "satya"
+    },
+    {
+        "name" : "dritha",
+        "mother" : "amba",
+        "gender" : "F",
+        "partner" : "jaya"
+    },
+    {
+        "name" : "jaya",
+        "mother" : null,
+        "gender" : "M",
+        "partner" : "dritha"
+    },
+    {
+        "name" : "tritha",
+        "mother" : "amba",
+        "gender" : "F",
+        "partner" : null
+    },
+    {
+        "name" : "vritha",
+        "mother" : "amba",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "vika",
+        "mother" : "lika",
+        "gender" : "F",
+        "partner" : null
+    },
+    {
+        "name" : "chika",
+        "mother" : "lika",
+        "gender" : "F",
+        "partner" : null
+    },
+    {
+        "name" : "jnki",
+        "mother" : "chitra",
+        "gender" : "F",
+        "partner" : "arit"
+    },
+    {
+        "name" : "arit",
+        "mother" : null,
+        "gender" : "M",
+        "partner" : "jnki"
+    },
+    {
+        "name" : "ahit",
+        "mother" : "chitra",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "asva",
+        "mother" : "satya",
+        "gender" : "M",
+        "partner" : "satvy"
+    },
+    {
+        "name" : "satvy",
+        "mother" : null,
+        "gender" : "F",
+        "partner" : "asva"
+    },
+    {
+        "name" : "vyas",
+        "mother" : "satya",
+        "gender" : "M",
+        "partner" : "krpi"
+    },
+    {
+        "name" : "krpi",
+        "mother" : null,
+        "gender" : "F",
+        "partner" : "vyas"
+    },
+    {
+        "name" : "atya",
+        "mother" : "satya",
+        "gender" : "F",
+        "partner" : null
+    },
+    {
+        "name" : "yodhan",
+        "mother" : "dritha",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "laki",
+        "mother" : "jnki",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "lavnya",
+        "mother" : "jnki",
+        "gender" : "F",
+        "partner" : null
+    },
+    {
+        "name" : "vasa",
+        "mother" : "satvy",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "kriya",
+        "mother" : "krpi",
+        "gender" : "M",
+        "partner" : null
+    },
+    {
+        "name" : "krithi",
+        "mother" : "krpi",
+        "gender" : "F",
+        "partner" : null
+    }
 
 ]

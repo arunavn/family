@@ -1,5 +1,4 @@
 class Member:
-    #member_id = 0
     
     def __init__(self, name, gender = 'F', mother = None, father = None, partner = None, level = 0):
         #Member.member_id+=1 
@@ -9,6 +8,7 @@ class Member:
         self.mother = mother
         self.father = father
         self.level = level
+
 
 class FamilyTree:
 
@@ -27,8 +27,6 @@ class FamilyTree:
             if mother.gender != 'F':
                 return 'CHILD_ADDITION_FAILED'
             father = self.get_member_by_relation(mother, 'partner')[0]
-            # if father.gender != 'M':
-            #     return 'CHILD_ADDITION_FAILED '
         mname, fname = None, None
         if mother is not None:
             mname = mother.name
@@ -45,14 +43,6 @@ class FamilyTree:
         if mother is None and partner_name is None:
             return 'PERSON_NOT_FOUND'
         member = Member(name, gender, mname, fname, partner_name, check_level + 1 )
-
-        # for i, v in enumerate(self.__tree):
-        #     if v.level >check_level:
-        #         ins_pos = i
-        #     if i == tree_len - 1:
-        #         ins_pos = tree_len
-        
-        # self.__tree.insert(ins_pos, member)
         level = check_level + 1
         try:
             ins_pos = sum( [ i for i in self.__levels[:level+1] ])     
@@ -73,11 +63,11 @@ class FamilyTree:
         return member
 
 
-
     def get_member_by_name(self, name):
         for member in self.__tree:
             if member.name == name:
                 return member
+
 
     def get_member_by_relation(self, member, relation):
         if isinstance(member, str):
@@ -91,7 +81,28 @@ class FamilyTree:
                 if m.partner is not None:
                     if m.partner == member.name:
                         member_list.append(m)
-        
+        elif relation == 'Paternal-Uncle':
+            father = self.get_parents(member)['father']
+            father_male_siblings = self.get_siblings(father, female = False)
+            member_list =  father_male_siblings
+        elif relation == 'Paternal-Aunt':
+            father = self.get_parents(member)['father']
+            father_female_siblings = self.get_siblings(father, male = False)
+            member_list =  father_female_siblings
+        elif relation == 'Maternal-Uncle':
+            mother = self.get_parents(member)['mother']
+            mother_male_siblings = self.get_siblings(mother, female = False)
+            member_list = mother_male_siblings
+        elif relation == 'Maternal-Aunt':
+            mother = self.get_parents(member)['mother']
+            mother_female_siblings = self.get_siblings(mother, male = False)
+            member_list =  mother_female_siblings
+        elif relation == 'Son':
+            member_list = self.get_offsprings(member, female = False)
+        elif relation == 'Daughter':
+            member_list = self.get_offsprings(member, male = False)
+        elif relation == 'Siblings':
+            member_list = self.get_siblings(member)
         if len(member_list) == 0:    
             return [None]
         return member_list
@@ -104,12 +115,47 @@ class FamilyTree:
         print(self.__levels)
         return tree 
 
+
     def create_initial_tree(self, initial_tree):
         for m in initial_tree:
             self.add_member(name = m['name'], gender = m['gender'], mother_name = m['mother'], partner_name= m['partner'])
+
 
     def get_members_at_level(self, level):
         start = sum( [ i for i in self.__levels[:level] ])
         stop = start + self.__levels[level]
         members = self.__tree[start:stop]
         return members
+    
+    def get_siblings(self, member, male = True, female = True):
+        potential_siblings = self.get_members_at_level(member.level)
+        siblings = []
+        for ps in potential_siblings:
+            if ps.name != member.name and member.mother == ps.mother and member.mother is not None:
+                if male and (ps.gender == 'M'):
+                    siblings.append(ps)
+                if female and (ps.gender == 'F'):
+                    siblings.append(ps)
+        return siblings
+
+    def get_offsprings(self, member, male = True, female = True):
+        potential_offsprings = self.get_members_at_level(member.level + 1)
+        offsprings = []
+        for po in potential_offsprings:
+            if (  member.name in [ po.mother, po.father]):
+                if male and (po.gender == 'M'):
+                    offsprings.append(po)
+                if female and (po.gender == 'F'):
+                    offsprings.append(po)
+        return offsprings
+
+    
+    def get_parents(self, member):
+        parents = {"mother": None, "father": None}
+        potential_parents = self.get_members_at_level(member.level - 1)
+        for pp in potential_parents:
+            if pp.name == member.father:
+                parents['father'] = pp
+            if pp.name == member.mother:
+                parents['mother'] = pp               
+        return parents

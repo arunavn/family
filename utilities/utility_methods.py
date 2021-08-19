@@ -5,8 +5,7 @@ def add_child(ftree, mother_name, name, gender):
         return msg
     else:
         return 'CHILD_ADDITION_SUCCEEDED'
-    
-
+        
 
 def handle_input(lines, ftree):
     output = []
