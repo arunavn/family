@@ -21,7 +21,6 @@ def main():
                 with open(file_path, 'r') as f:
                     #for each file reading lines
                     lines = f.readlines()
-                    print(lines)
                 #for each file, sending all the lines to handler method
                 output = input_handler.handle_input(lines)
                 for o in output:
